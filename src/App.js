@@ -28,7 +28,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Container maxWidth='md' sx={{ padding: '1em' }}>
+      <Container maxWidth='md' sx={{ padding: '1em', pt: '2em' }}>
         <Typography variant="h1" component="div" gutterBottom sx={{ fontSize: '2em' }}>
           React Alert System
         </Typography>
@@ -95,6 +95,15 @@ function App() {
           <FormGroup>
             <FormControlLabel control={<Checkbox defaultChecked onClick={handleLinkToggle} />} label="Remove link" />
           </FormGroup>
+          <Button
+            variant='outlined'
+            onClick={() =>
+              dispatch({
+                type: "CLEAR",
+              })
+            }>
+            Close all
+          </Button>
         </Stack>
       </Container>
 

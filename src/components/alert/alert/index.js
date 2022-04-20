@@ -1,8 +1,9 @@
-import React from 'react';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Link from '@mui/material/Link';
+import React from 'react';
 import { useAlert } from '..';
+import PropTypes from 'prop-types';
 
 const CustomAlert = ({ alert }) => {
     const { dispatch } = useAlert();
@@ -29,3 +30,18 @@ const CustomAlert = ({ alert }) => {
 }
 
 export default CustomAlert;
+
+let ALERT_TYPES = ['success', 'info', 'warning', 'error'];
+
+CustomAlert.propTypes = {
+    alert: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        content: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            message: PropTypes.string.isRequired,
+            link: PropTypes.string
+        }),
+        duration: PropTypes.number,
+        alerttype: PropTypes.oneOf(ALERT_TYPES),
+    })
+};

@@ -17,9 +17,10 @@ const alertReducer = (state = [], action) => {
                 }
             ]
         case 'REMOVE':
+            // Dispatch method for closing alert by their specific ids
             return state.filter(alert => alert.id !== action.alert)
-
         case 'CLEAR':
+            // Close all alerts 
             return []
         default:
             return state;
